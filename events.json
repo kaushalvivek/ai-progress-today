@@ -1,13 +1,13 @@
 {
   "events": [
-    {"name":"GPT-4o ('omni')","detail":"Real-time audio-vision-text with sub-second latency—closest to fluid, agentic multimodal intelligence so far.","date":"2024-05-13","importance":"pivotal","link":"https://openai.com/index/gpt-4o-and-gpt-4o-mini"},
     {"name":"Claude Opus 4","detail":"200 K context + tool APIs positions Anthropic at frontier; raises safety bar.","date":"2025-05-22","importance":"major","link":"https://www.anthropic.com/news/claude-4"},
-    {"name":"Llama 3","detail":"70 B open model reaches GPT-4-class benchmarks—democratized frontier performance.","date":"2024-04-18","importance":"major","link":"https://ai.meta.com/blog/llama-3/"},
-    {"name":"OpenAI o3","detail":"Outperforms GPT-4 on complex reasoning by scaling 'thought' steps; new best-in-class.","date":"2024-12-20","importance":"major","link":"https://openai.com/index/introducing-o3-and-o4-mini/"},
-    {"name":"OpenAI Sora","detail":"Minute-long photorealistic text-to-video → toward world-model alignment with reality.","date":"2024-02-15","importance":"major","link":"https://openai.com/sora"},
     {"name":"DeepSeek R1","detail":"Commodity-priced frontier reasoning ($1/MTok) collapses cost barrier to advanced AI.","date":"2025-01","importance":"major","link":"https://www.businessinsider.com/deepseek-ai-r1-model-2025-1"},
+    {"name":"OpenAI o3","detail":"Outperforms GPT-4 on complex reasoning by scaling 'thought' steps; new best-in-class.","date":"2024-12-20","importance":"major","link":"https://openai.com/index/introducing-o3-and-o4-mini/"},
     {"name":"OpenAI o1","detail":"'Reasoning-first' LM allocates adaptive compute per query; step beyond static inference.","date":"2024-09-12","importance":"major","link":"https://openai.com/o1"},
+    {"name":"GPT-4o ('omni')","detail":"Real-time audio-vision-text with sub-second latency—closest to fluid, agentic multimodal intelligence so far.","date":"2024-05-13","importance":"pivotal","link":"https://openai.com/index/gpt-4o-and-gpt-4o-mini"},
     {"name":"DeepSeek-V2","detail":"First open dense model aimed explicitly at multi-tool reasoning; rivalled proprietary peers.","date":"2024-05","importance":"major","link":"https://deeplang.ai"},
+    {"name":"Llama 3","detail":"70 B open model reaches GPT-4-class benchmarks—democratized frontier performance.","date":"2024-04-18","importance":"major","link":"https://ai.meta.com/blog/llama-3/"},
+    {"name":"OpenAI Sora","detail":"Minute-long photorealistic text-to-video → toward world-model alignment with reality.","date":"2024-02-15","importance":"major","link":"https://openai.com/sora"},
     {"name":"Gemini 1.5 Pro (1 M context)","detail":"Shows transformers can reason over book-length input—critical for long-horizon AGI tasks.","date":"2024-02","importance":"major","link":"https://deepmind.google/technologies/gemini/#gemini-15"},
     {"name":"Mixtral 8×7B","detail":"Sparse MoE open model matches GPT-3.5 quality at 1/10th compute—efficient scaling validated.","date":"2023-12","importance":"major","link":"https://mistral.ai/news/mixtral-8x7b/"},
     {"name":"Llama 2 open weights","detail":"70 B permissive license brings frontier-level LLMs to everyone—open-source arms race begins.","date":"2023-07","importance":"major","link":"https://en.wikipedia.org/wiki/LLaMA"},
@@ -48,11 +48,11 @@
     {"name":"McCulloch–Pitts neuron","detail":"First formal neuron model; sparks idea of learning machines mirroring biology.","date":"1943-12","importance":"notable","link":"https://en.wikipedia.org/wiki/Artificial_neuron"},
     {"name":"Ada Lovelace notes","detail":"Recognizes machines can manipulate symbols beyond arithmetic—philosophical root of AI.","date":"1843-07","importance":"notable","link":"https://en.wikipedia.org/wiki/Ada_Lovelace"},
     {"name":"Analytical Engine design","detail":"General-purpose, stored-program computer conceived a century early—AGI conceptually imaginable.","date":"1837-01","importance":"major","link":"https://en.wikipedia.org/wiki/Analytical_Engine"},
-    {"name":"Jacquard loom","detail":"Punch-card control → hardware/software split; earliest programmable device.","date":"1804-05","importance":"pivotal","link":"https://en.wikipedia.org/wiki/Jacquard_machine"},
-    {"name":"Watt's separate-condenser engine","detail":"Efficiency leap scales mechanization; society sees non-human labor as normal.","date":"1769-04","importance":"major","link":"https://en.wikipedia.org/wiki/Watt_steam_engine"},
-    {"name":"Newcomen steam engine","detail":"First practical machine replacing muscle with autonomous power—birth of automation.","date":"1712-07","importance":"notable","link":"https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine"},
     {"name":"Turing's Universal Machine","detail":"Shows single device can emulate any algorithm—mathematical groundwork for general intelligence.","date":"1936-04","importance":"pivotal","link":"https://en.wikipedia.org/wiki/Universal_Turing_machine"},
     {"name":"Triode vacuum tube","detail":"Electronic amplification enables digital switching—foundation for electronic brains.","date":"1906-10","importance":"notable","link":"https://en.wikipedia.org/wiki/Triode"},
-    {"name":"Hollerith tabulator","detail":"Automated census proves data processing can eclipse human clerks; information work mechanized.","date":"1890-06","importance":"major","link":"https://en.wikipedia.org/wiki/Herman_Hollerith"}
+    {"name":"Hollerith tabulator","detail":"Automated census proves data processing can eclipse human clerks; information work mechanized.","date":"1890-06","importance":"major","link":"https://en.wikipedia.org/wiki/Herman_Hollerith"},
+    {"name":"Jacquard loom","detail":"Punch-card control → hardware/software split; earliest programmable device.","date":"1804-05","importance":"pivotal","link":"https://en.wikipedia.org/wiki/Jacquard_machine"},
+    {"name":"Watt's separate-condenser engine","detail":"Efficiency leap scales mechanization; society sees non-human labor as normal.","date":"1769-04","importance":"major","link":"https://en.wikipedia.org/wiki/Watt_steam_engine"},
+    {"name":"Newcomen steam engine","detail":"First practical machine replacing muscle with autonomous power—birth of automation.","date":"1712-07","importance":"notable","link":"https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine"}
   ]
 }
