@@ -84,21 +84,18 @@ For subscription testing, you'll need to set up Google Sheets API credentials an
 
 **How AI maintains this timeline autonomously:**
 
-The magic will happen through an AI agent deployed as a Lambda function (currently in development):
+The magic will happen through an AI agent deployed as a Lambda function:
 
-1. **🗓️ Daily Execution**: Lambda function will run once per day at 9 AM UTC
+1. **🗓️ Daily Execution**: Lambda function will run once per day
 2. **📰 Source Monitoring**: Will scan the TLDR AI newsletter for significant developments (future expansion planned to additional sources)
-3. **🧠 Significance Evaluation**: Uses OpenAI's o3 model to assess whether each development meets threshold criteria for "notable," "major," or "pivotal" classification
-4. **✍️ Content Generation**: Automatically writes 60-character summaries matching the site's concise, technical tone
-5. **🔄 Git Integration**: Creates commits directly to the GitHub repository with properly formatted JSON entries
-6. **🚀 Auto-deployment**: Netlify automatically rebuilds and deploys when new commits are pushed
-7. **📧 Notification Trigger**: Sends emails to subscribers when new milestones are successfully added
+3. **🧠 Significance Evaluation**: Uses OpenAI's o3 model to evaluate whether there's a development that meets threshold criteria for "notable," "major," or "pivotal" classification
+4. **✍️ Content Generation**: Generate a concise summary of the development
+5. **🔄 Git Integration**: Creates PRs to the GitHub repository with properly formatted JSON entries. There will be human reviews to begin with, but in the future, this will be fully automated.
+6. **📧 Notification Trigger**: Sends emails to subscribers when new milestones are successfully added
 
-**Current Status**: The AI curation system is work-in-progress. The current timeline has been curated by OpenAI o3 and reviewed/edited by Claude Opus 4 (thinking). Future updates will be fully automated via Lambda.
+**Current Status**: The AI curation system is work-in-progress. The current timeline has been curated by OpenAI o3 and reviewed/edited by Claude Opus 4 (thinking) with human-in-the-loop. Future updates will be fully automated via Lambda.
 
-**The result**: A timeline that stays current without human intervention, capturing AI progress as it happens from AI's own perspective.
-
-**Why this matters**: You're not just reading about AI history — you're watching AI write its own story in real-time. It's recursion all the way down.
+**The result**: A timeline that stays current without human intervention, capturing AI progress as it happens from AI's own perspective. It's recursion all the way down.
 
 ---
 
