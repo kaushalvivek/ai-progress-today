@@ -59,6 +59,25 @@
             </div>
         </div>
         
+        <div class="subscribe-section">
+            <h3>Get notified of new AI milestones</h3>
+            <p>Subscribe to receive updates when significant AI breakthroughs are added to the timeline.</p>
+            <form id="subscribe-form" class="subscribe-form">
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="your@email.com" 
+                    required
+                    autocomplete="email"
+                >
+                <button type="submit" id="subscribe-btn">
+                    <span class="btn-text">Subscribe</span>
+                    <span class="btn-loading" style="display: none;">⏳</span>
+                </button>
+            </form>
+            <div id="subscribe-message" class="subscribe-message"></div>
+        </div>
+        
         <footer>
             <p>Built by <a href="https://vivekkaushal.com" target="_blank">vivek</a> • <a href="https://aiprogress.today" target="_blank">aiprogress.today</a></p>
         </footer>

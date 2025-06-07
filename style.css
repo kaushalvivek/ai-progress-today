@@ -283,11 +283,112 @@ header p {
     line-height: 1.5;
 }
 
-footer {
+.subscribe-section {
     text-align: center;
-    padding: 60px 0 40px;
+    padding: 40px 0;
     border-top: 1px solid var(--border);
     margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.subscribe-section h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.subscribe-section p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin-bottom: 24px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.subscribe-form input[type="email"] {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.subscribe-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.subscribe-form input[type="email"]::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.subscribe-form button {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: var(--bg-primary);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 100px;
+}
+
+.subscribe-form button:hover:not(:disabled) {
+    background: #16a34a;
+    border-color: #16a34a;
+    transform: translateY(-1px);
+}
+
+.subscribe-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.subscribe-message {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    min-height: 20px;
+}
+
+.subscribe-message.success {
+    color: var(--accent);
+}
+
+.subscribe-message.error {
+    color: var(--pivotal);
+}
+
+.subscribe-message.existing {
+    color: var(--major);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0 40px;
+    border-top: 1px solid var(--border);
 }
 
 footer p {
@@ -375,6 +476,15 @@ footer a:hover {
     
     .timeline-item:hover {
         transform: translateX(2px);
+    }
+    
+    .subscribe-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .subscribe-form button {
+        min-width: auto;
     }
 }
 
