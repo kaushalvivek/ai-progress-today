@@ -1,6 +1,6 @@
 # AI Progress Today
 
-> From steam engines to GPT-4o in one clean timeline. Because someone should track how we accidentally built ourselves into obsolescence.
+> From steam engines to AGI in one clean timeline. Because someone should track how we accidentally built ourselves into obsolescence.
 
 **[aiprogress.today](https://aiprogress.today)** • *Refreshingly honest about humanity's sprint toward AGI*
 
