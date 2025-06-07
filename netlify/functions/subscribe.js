@@ -83,12 +83,15 @@ exports.handler = async (event, context) => {
     await doc.loadInfo();
 
     // Get or create the subscribers sheet
-    let sheet;
-    try {
-      sheet = doc.sheetsByTitle['Subscribers'];
-    } catch (error) {
+    let sheet = doc.sheetsByTitle['Subscribers'];
+    
+    if (!sheet) {
+      console.log('Creating new Subscribers sheet...');
       sheet = await doc.addSheet({ title: 'Subscribers' });
       await sheet.setHeaderRow(['Email', 'Subscribed At', 'IP Address']);
+      console.log('Subscribers sheet created successfully');
+    } else {
+      console.log('Found existing Subscribers sheet');
     }
 
     // Check if email already exists
