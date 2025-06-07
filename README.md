@@ -4,6 +4,8 @@
 
 **[aiprogress.today](https://aiprogress.today)** • *Refreshingly honest about humanity's sprint toward AGI*
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2f6877a9-7ba9-48af-ad80-0d10848ed985/deploy-status)](https://app.netlify.com/projects/ai-progress-today/deploys)
+
 ---
 
 ## What is this?
