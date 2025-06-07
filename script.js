@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             eventElement.innerHTML = `
                 <div class="year">${event.date}</div>
                 <div class="content">
-                    <h3><a href="${event.link}" target="_blank" rel="noopener noreferrer">${event.name}</a></h3>
+                    <h3><a href="${event.link}" target="_blank" rel="noopener noreferrer" onclick="trackEventClick('${event.name}', '${event.importance}')">${event.name}</a></h3>
                     <p>${event.detail}</p>
                 </div>
             `;
@@ -79,6 +79,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Add active class to clicked button
                 this.classList.add('active');
+                
+                // Track filter usage
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'filter_used', {
+                        'event_category': 'timeline',
+                        'event_label': filter,
+                        'value': 1
+                    });
+                }
                 
                 // Filter timeline items
                 timelineItems.forEach(item => {
@@ -157,6 +166,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         showMessage('Successfully subscribed! You\'ll be notified when AI discovers new milestones.', 'success');
                         emailInput.value = '';
+                        
+                        // Track successful subscription
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'subscribe', {
+                                'event_category': 'engagement',
+                                'event_label': 'email_subscription',
+                                'value': 1
+                            });
+                        }
                     }
                 } else {
                     throw new Error(data.error || 'Subscription failed');
@@ -189,3 +207,15 @@ document.addEventListener('DOMContentLoaded', function() {
     loadEvents();
     setupSubscriptionForm();
 });
+
+// Track timeline event clicks
+function trackEventClick(eventName, importance) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'timeline_click', {
+            'event_category': 'engagement',
+            'event_label': eventName,
+            'custom_parameter_1': importance,
+            'value': 1
+        });
+    }
+}
