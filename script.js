@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             renderEvents(eventsData);
             setupEventListeners();
-            generateStats(eventsData);
-            generateChart(eventsData);
+            initializeInteractiveFeatures(eventsData);
             
         } catch (error) {
             console.error('Error loading events:', error);
@@ -222,38 +221,89 @@ function trackEventClick(eventName, importance) {
     }
 }
 
-// Generate dynamic statistics
-function generateStats(events) {
+// Initialize all interactive features
+function initializeInteractiveFeatures(events) {
+    startAICommentary();
+    setupInteractiveStats(events);
+    setupVelocityVisualization(events);
+    setupTimelineBuilder(events);
+    
+    // Delay stats animation for dramatic effect
+    setTimeout(() => {
+        generateAnimatedStats(events);
+    }, 1000);
+}
+
+// AI Commentary with typewriter effect
+function startAICommentary() {
+    const comments = [
+        "Analyzing 313 years of technological evolution...",
+        "Exponential acceleration detected in recent decades.",
+        "Pattern recognition: AI development is accelerating.",
+        "Recursive observation: AI studying its own progress.",
+        "Conclusion: We're approaching the inflection point."
+    ];
+    
+    let currentComment = 0;
+    let currentChar = 0;
+    const commentElement = document.getElementById('ai-comment');
+    
+    function typeComment() {
+        if (currentChar < comments[currentComment].length) {
+            commentElement.textContent += comments[currentComment][currentChar];
+            currentChar++;
+            setTimeout(typeComment, 50 + Math.random() * 50);
+        } else {
+            setTimeout(() => {
+                commentElement.textContent = '';
+                currentChar = 0;
+                currentComment = (currentComment + 1) % comments.length;
+                setTimeout(typeComment, 2000);
+            }, 3000);
+        }
+    }
+    
+    typeComment();
+}
+
+// Interactive stats with animations
+function setupInteractiveStats(events) {
+    const statCards = document.querySelectorAll('.stat-card.clickable');
+    
+    statCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const stat = this.dataset.stat;
+            handleStatClick(stat, events);
+        });
+    });
+}
+
+function generateAnimatedStats(events) {
     const totalEvents = events.length;
     const currentYear = new Date().getFullYear();
     const earliestYear = Math.min(...events.map(e => new Date(e.date).getFullYear()));
     const yearsSpan = currentYear - earliestYear;
     
-    // Calculate events in last 5 years
     const fiveYearsAgo = currentYear - 5;
     const recentEvents = events.filter(e => new Date(e.date).getFullYear() >= fiveYearsAgo);
     const recentPercentage = Math.round((recentEvents.length / totalEvents) * 100);
     
-    // Animate numbers
     animateNumber('total-events', totalEvents, '');
     animateNumber('years-span', yearsSpan, '');
     animateNumber('acceleration', recentPercentage, '%');
 }
 
-// Animate number counting up
 function animateNumber(elementId, target, suffix = '') {
     const element = document.getElementById(elementId);
-    const duration = 1500;
+    const duration = 2000;
     const startTime = performance.now();
-    const startValue = 0;
     
     function updateNumber(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         
-        // Easing function for smooth animation
         const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-        const currentValue = Math.round(startValue + (target - startValue) * easeOutCubic);
+        const currentValue = Math.round(target * easeOutCubic);
         
         element.textContent = currentValue + suffix;
         
@@ -265,116 +315,281 @@ function animateNumber(elementId, target, suffix = '') {
     requestAnimationFrame(updateNumber);
 }
 
-// Generate acceleration chart
-function generateChart(events) {
-    const canvas = document.getElementById('accelerationChart');
-    const ctx = canvas.getContext('2d');
+function handleStatClick(stat, events) {
+    // Add visual feedback
+    const card = document.querySelector(`[data-stat="${stat}"]`);
+    card.style.transform = 'translateY(-12px) scale(1.05)';
+    setTimeout(() => {
+        card.style.transform = '';
+    }, 300);
     
-    // Set up canvas for high DPI
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
-    
-    // Group events by decade
-    const decades = {};
+    // Show relevant information or trigger animation
+    if (stat === 'acceleration') {
+        highlightRecentEvents(events);
+    }
+}
+
+function highlightRecentEvents(events) {
     const currentYear = new Date().getFullYear();
+    const fiveYearsAgo = currentYear - 5;
     
-    events.forEach(event => {
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        const eventYear = parseInt(item.querySelector('.year').textContent);
+        if (eventYear >= fiveYearsAgo) {
+            item.style.animation = 'pulse 1s ease-in-out';
+            setTimeout(() => {
+                item.style.animation = '';
+            }, 1000);
+        }
+    });
+}
+
+// Velocity visualization with particle system
+function setupVelocityVisualization(events) {
+    const canvas = document.getElementById('velocityCanvas');
+    const ctx = canvas.getContext('2d');
+    const playBtn = document.getElementById('play-velocity');
+    const yearDisplay = document.getElementById('velocity-year');
+    
+    let animationId;
+    let isPlaying = false;
+    let particles = [];
+    let currentYear = 1712;
+    const endYear = 2025;
+    const speed = 5; // years per frame
+    
+    function setupCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+    }
+    
+    function createParticle(event) {
         const year = new Date(event.date).getFullYear();
-        const decade = Math.floor(year / 10) * 10;
-        if (!decades[decade]) {
-            decades[decade] = { total: 0, pivotal: 0, major: 0, notable: 0 };
-        }
-        decades[decade].total++;
-        decades[decade][event.importance]++;
-    });
+        const intensity = event.importance === 'pivotal' ? 1 : event.importance === 'major' ? 0.7 : 0.4;
+        const color = event.importance === 'pivotal' ? '#ef4444' : 
+                     event.importance === 'major' ? '#f59e0b' : '#22c55e';
+        
+        return {
+            x: ((year - 1712) / (2025 - 1712)) * canvas.width,
+            y: canvas.height / 2 + (Math.random() - 0.5) * 100,
+            vx: 0,
+            vy: (Math.random() - 0.5) * 2,
+            size: intensity * 8 + 2,
+            color: color,
+            alpha: 1,
+            age: 0,
+            maxAge: 120,
+            event: event
+        };
+    }
     
-    // Prepare data for chart
-    const sortedDecades = Object.keys(decades).sort((a, b) => parseInt(a) - parseInt(b));
-    const width = rect.width;
-    const height = rect.height;
-    const margin = 40;
-    const chartWidth = width - margin * 2;
-    const chartHeight = height - margin * 2;
-    
-    const maxEvents = Math.max(...Object.values(decades).map(d => d.total));
-    
-    // Draw chart
-    ctx.fillStyle = '#27272a';
-    ctx.strokeStyle = '#3f3f46';
-    ctx.lineWidth = 1;
-    
-    // Draw grid lines
-    for (let i = 0; i <= 5; i++) {
-        const y = margin + (chartHeight / 5) * i;
+    function animate() {
+        if (!isPlaying) return;
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw velocity curve
         ctx.beginPath();
-        ctx.moveTo(margin, y);
-        ctx.lineTo(width - margin, y);
-        ctx.stroke();
+        ctx.strokeStyle = 'rgba(34, 197, 94, 0.3)';
+        ctx.lineWidth = 2;
+        
+        const curvePoints = [];
+        for (let i = 0; i <= currentYear - 1712; i += 10) {
+            const year = 1712 + i;
+            const eventsInDecade = events.filter(e => {
+                const eventYear = new Date(e.date).getFullYear();
+                return eventYear >= year && eventYear < year + 10;
+            }).length;
+            
+            const x = (i / (2025 - 1712)) * canvas.width;
+            const y = canvas.height - (eventsInDecade * 20 + 50);
+            curvePoints.push({ x, y });
+        }
+        
+        if (curvePoints.length > 1) {
+            ctx.moveTo(curvePoints[0].x, curvePoints[0].y);
+            for (let i = 1; i < curvePoints.length; i++) {
+                ctx.lineTo(curvePoints[i].x, curvePoints[i].y);
+            }
+            ctx.stroke();
+        }
+        
+        // Add particles for events in current year range
+        const eventsThisYear = events.filter(e => {
+            const eventYear = new Date(e.date).getFullYear();
+            return eventYear <= currentYear && eventYear > currentYear - 5;
+        });
+        
+        eventsThisYear.forEach(event => {
+            if (Math.random() < 0.1) { // Spawn probability
+                particles.push(createParticle(event));
+            }
+        });
+        
+        // Update and draw particles
+        particles = particles.filter(particle => {
+            particle.age++;
+            particle.y += particle.vy;
+            particle.alpha = 1 - (particle.age / particle.maxAge);
+            
+            if (particle.alpha > 0) {
+                ctx.save();
+                ctx.globalAlpha = particle.alpha;
+                ctx.fillStyle = particle.color;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+                return true;
+            }
+            return false;
+        });
+        
+        // Update year display
+        yearDisplay.textContent = currentYear;
+        
+        // Advance year
+        currentYear += speed;
+        
+        if (currentYear <= endYear) {
+            animationId = requestAnimationFrame(animate);
+        } else {
+            stopAnimation();
+        }
     }
     
-    // Draw bars
-    const barWidth = chartWidth / sortedDecades.length * 0.8;
-    const barSpacing = chartWidth / sortedDecades.length;
+    function startAnimation() {
+        isPlaying = true;
+        currentYear = 1712;
+        particles = [];
+        playBtn.innerHTML = '<span>⏸</span> Pause';
+        animate();
+    }
     
-    sortedDecades.forEach((decade, index) => {
-        const data = decades[decade];
-        const barHeight = (data.total / maxEvents) * chartHeight;
-        const x = margin + index * barSpacing + (barSpacing - barWidth) / 2;
-        const y = margin + chartHeight - barHeight;
-        
-        // Create gradient based on event types
-        const gradient = ctx.createLinearGradient(0, y, 0, y + barHeight);
-        
-        const pivotalRatio = data.pivotal / data.total;
-        const majorRatio = data.major / data.total;
-        const notableRatio = data.notable / data.total;
-        
-        if (pivotalRatio > 0) {
-            gradient.addColorStop(0, '#ef4444');
-            gradient.addColorStop(pivotalRatio, '#ef4444');
-        }
-        if (majorRatio > 0) {
-            gradient.addColorStop(pivotalRatio, '#f59e0b');
-            gradient.addColorStop(pivotalRatio + majorRatio, '#f59e0b');
-        }
-        if (notableRatio > 0) {
-            gradient.addColorStop(pivotalRatio + majorRatio, '#22c55e');
-            gradient.addColorStop(1, '#22c55e');
-        }
-        
-        ctx.fillStyle = gradient;
-        ctx.fillRect(x, y, barWidth, barHeight);
-        
-        // Add decade labels
-        ctx.fillStyle = '#a1a1aa';
-        ctx.font = '10px JetBrains Mono';
-        ctx.textAlign = 'center';
-        ctx.fillText(`${decade}s`, x + barWidth / 2, height - 10);
-        
-        // Add count labels
-        if (data.total > 0) {
-            ctx.fillStyle = '#e4e4e7';
-            ctx.font = 'bold 11px JetBrains Mono';
-            ctx.fillText(data.total, x + barWidth / 2, y - 5);
+    function stopAnimation() {
+        isPlaying = false;
+        if (animationId) cancelAnimationFrame(animationId);
+        playBtn.innerHTML = '<span>▶</span> Watch AI Accelerate';
+        currentYear = 1712;
+        yearDisplay.textContent = '1712';
+    }
+    
+    playBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            stopAnimation();
+        } else {
+            startAnimation();
         }
     });
     
-    // Add chart title and axis labels
-    ctx.fillStyle = '#e4e4e7';
-    ctx.font = '12px JetBrains Mono';
-    ctx.textAlign = 'left';
-    ctx.fillText('Events', 5, 20);
+    setupCanvas();
+    window.addEventListener('resize', setupCanvas);
+}
+
+// Timeline builder
+function setupTimelineBuilder(events) {
+    const canvas = document.getElementById('timelineCanvas');
+    const ctx = canvas.getContext('2d');
+    const buildBtn = document.getElementById('build-timeline');
+    const progressBar = document.getElementById('build-progress');
+    const progressText = document.getElementById('progress-text');
     
-    // Add y-axis labels
-    ctx.textAlign = 'right';
-    for (let i = 0; i <= 5; i++) {
-        const value = Math.round((maxEvents / 5) * (5 - i));
-        const y = margin + (chartHeight / 5) * i + 4;
-        ctx.fillText(value.toString(), margin - 10, y);
+    let isBuilding = false;
+    
+    function setupCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
     }
+    
+    function buildTimeline() {
+        if (isBuilding) return;
+        isBuilding = true;
+        
+        buildBtn.textContent = 'Building...';
+        buildBtn.disabled = true;
+        
+        const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+        let currentEvent = 0;
+        const totalEvents = sortedEvents.length;
+        
+        function animateStep() {
+            if (currentEvent >= totalEvents) {
+                progressText.textContent = 'Timeline complete!';
+                buildBtn.textContent = '⚡ Build Timeline';
+                buildBtn.disabled = false;
+                isBuilding = false;
+                return;
+            }
+            
+            const progress = (currentEvent / totalEvents) * 100;
+            progressBar.style.setProperty('--progress', `${progress}%`);
+            progressBar.style.background = `linear-gradient(to right, #22c55e ${progress}%, #27272a ${progress}%)`;
+            progressText.textContent = `Building: ${sortedEvents[currentEvent].name}`;
+            
+            drawTimelineStep(sortedEvents.slice(0, currentEvent + 1));
+            currentEvent++;
+            
+            setTimeout(animateStep, 100);
+        }
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        animateStep();
+    }
+    
+    function drawTimelineStep(events) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const margin = 60;
+        const timelineY = canvas.height / 2;
+        const startX = margin;
+        const endX = canvas.width - margin;
+        const timelineLength = endX - startX;
+        
+        // Draw main timeline line
+        ctx.strokeStyle = '#22c55e';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(startX, timelineY);
+        ctx.lineTo(startX + (timelineLength * events.length / 60), timelineY);
+        ctx.stroke();
+        
+        // Draw events
+        events.forEach((event, index) => {
+            const x = startX + (index / 60) * timelineLength;
+            const color = event.importance === 'pivotal' ? '#ef4444' : 
+                         event.importance === 'major' ? '#f59e0b' : '#22c55e';
+            const size = event.importance === 'pivotal' ? 8 : 
+                        event.importance === 'major' ? 6 : 4;
+            
+            // Draw event dot
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, timelineY, size, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw glow effect for recent events
+            if (index === events.length - 1) {
+                ctx.save();
+                ctx.globalAlpha = 0.3;
+                ctx.beginPath();
+                ctx.arc(x, timelineY, size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        });
+    }
+    
+    buildBtn.addEventListener('click', buildTimeline);
+    setupCanvas();
+    window.addEventListener('resize', setupCanvas);
 }

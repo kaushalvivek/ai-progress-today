@@ -78,27 +78,72 @@
             </div>
         </header>
         
-        <div class="stats-overview">
-            <div class="stat-card">
-                <div class="stat-number" id="total-events">60+</div>
+        <div class="ai-commentary">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="terminal-title">ai_timeline_analysis.py</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="prompt">→</span>
+                        <span class="ai-comment" id="ai-comment"></span>
+                        <span class="cursor">█</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="velocity-visualization">
+            <h3>AI Development Velocity</h3>
+            <div class="velocity-container">
+                <canvas id="velocityCanvas" width="800" height="300"></canvas>
+                <div class="velocity-controls">
+                    <button id="play-velocity" class="velocity-btn">
+                        <span>▶</span> Watch AI Accelerate
+                    </button>
+                    <div class="velocity-year" id="velocity-year">1712</div>
+                </div>
+            </div>
+            <p class="velocity-subtitle">Real-time visualization of exponential progress</p>
+        </div>
+
+        <div class="interactive-stats">
+            <div class="stat-card clickable" data-stat="total">
+                <div class="stat-glow"></div>
+                <div class="stat-number" id="total-events">0</div>
                 <div class="stat-label">AI Milestones</div>
+                <div class="stat-detail">Click to explore</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="years-span">313</div>
+            <div class="stat-card clickable" data-stat="velocity">
+                <div class="stat-glow"></div>
+                <div class="stat-number" id="years-span">0</div>
                 <div class="stat-label">Years Tracked</div>
+                <div class="stat-detail">From steam to AGI</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="acceleration">50%</div>
-                <div class="stat-label">In Last 5 Years</div>
+            <div class="stat-card clickable" data-stat="acceleration">
+                <div class="stat-glow"></div>
+                <div class="stat-number" id="acceleration">0%</div>
+                <div class="stat-label">Recent Surge</div>
+                <div class="stat-detail">Exponential growth</div>
             </div>
         </div>
         
-        <div class="progress-chart">
-            <h3>AI Progress Acceleration</h3>
-            <div class="chart-container">
-                <canvas id="accelerationChart" width="800" height="200"></canvas>
+        <div class="timeline-builder">
+            <div class="builder-controls">
+                <button id="build-timeline" class="build-btn">
+                    <span>⚡</span> Build Timeline
+                </button>
+                <div class="build-progress">
+                    <div class="progress-bar" id="build-progress"></div>
+                    <span class="progress-text" id="progress-text">Ready to build</span>
+                </div>
             </div>
-            <p class="chart-subtitle">Events per decade showing exponential growth toward AGI</p>
+            <div class="timeline-canvas-container">
+                <canvas id="timelineCanvas" width="1000" height="400"></canvas>
+            </div>
         </div>
         
         <div class="timeline" id="timeline">
