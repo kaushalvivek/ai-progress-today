@@ -68,4 +68,5 @@ open http://localhost:8000     # Behold the timeline
 
 ---
 
-**Built by [vivek](https://vivekkaushal.com)** for people who appreciate clean design and mild gallows humor about our AI future.
+**Built by [vivek](https://vivekkaushal.com)** • [GitHub](https://github.com/kaushalvivek/ai-progress-today) • [Edit](https://github.com/kaushalvivek/ai-progress-today/edit/main/README.md)  
+*For people who appreciate clean design and mild gallows humor about our AI future.*
