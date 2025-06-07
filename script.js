@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (data.status === 'existing') {
                         showMessage('You\'re already subscribed!', 'existing');
                     } else {
-                        showMessage('Successfully subscribed! You\'ll be notified of new AI milestones.', 'success');
+                        showMessage('Successfully subscribed! You\'ll be notified when AI discovers new milestones.', 'success');
                         emailInput.value = '';
                     }
                 } else {
