@@ -50,6 +50,23 @@
                     Notable
                 </button>
             </div>
+            
+            <div class="subscribe-section-top">
+                <form id="subscribe-form" class="subscribe-form-top">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="your@email.com — get notified of new milestones" 
+                        required
+                        autocomplete="email"
+                    >
+                    <button type="submit" id="subscribe-btn">
+                        <span class="btn-text">Subscribe</span>
+                        <span class="btn-loading" style="display: none;">⏳</span>
+                    </button>
+                </form>
+                <div id="subscribe-message" class="subscribe-message"></div>
+            </div>
         </header>
         
         <div class="timeline" id="timeline">
@@ -57,25 +74,6 @@
                 <div class="loading-spinner"></div>
                 <p>Loading AI milestones...</p>
             </div>
-        </div>
-        
-        <div class="subscribe-section">
-            <h3>Get notified of new AI milestones</h3>
-            <p>Subscribe to receive updates when significant AI breakthroughs are added to the timeline.</p>
-            <form id="subscribe-form" class="subscribe-form">
-                <input 
-                    type="email" 
-                    id="email" 
-                    placeholder="your@email.com" 
-                    required
-                    autocomplete="email"
-                >
-                <button type="submit" id="subscribe-btn">
-                    <span class="btn-text">Subscribe</span>
-                    <span class="btn-loading" style="display: none;">⏳</span>
-                </button>
-            </form>
-            <div id="subscribe-message" class="subscribe-message"></div>
         </div>
         
         <footer>

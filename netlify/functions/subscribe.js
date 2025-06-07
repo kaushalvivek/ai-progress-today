@@ -43,55 +43,22 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Check environment variables
-    const sheetId = process.env.GOOGLE_SHEET_ID;
-    const serviceEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
-
-    console.log('Environment check:', {
-      sheetId: sheetId ? 'SET' : 'MISSING',
-      serviceEmail: serviceEmail ? 'SET' : 'MISSING',
-      privateKey: privateKey ? 'SET' : 'MISSING'
-    });
-
-    if (!sheetId || !serviceEmail || !privateKey) {
-      return {
-        statusCode: 500,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          error: 'Server configuration error. Please contact admin.',
-          debug: {
-            sheetId: sheetId ? 'SET' : 'MISSING',
-            serviceEmail: serviceEmail ? 'SET' : 'MISSING',
-            privateKey: privateKey ? 'SET' : 'MISSING'
-          }
-        }),
-      };
-    }
-
     // Initialize Google Sheets API with service account
     const serviceAccountAuth = new JWT({
-      email: serviceEmail,
-      key: privateKey.replace(/\\n/g, '\n'),
+      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    const doc = new GoogleSpreadsheet(sheetId, serviceAccountAuth);
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
     await doc.loadInfo();
 
     // Get or create the subscribers sheet
     let sheet = doc.sheetsByTitle['Subscribers'];
     
     if (!sheet) {
-      console.log('Creating new Subscribers sheet...');
       sheet = await doc.addSheet({ title: 'Subscribers' });
       await sheet.setHeaderRow(['Email', 'Subscribed At', 'IP Address']);
-      console.log('Subscribers sheet created successfully');
-    } else {
-      console.log('Found existing Subscribers sheet');
     }
 
     // Check if email already exists
@@ -132,8 +99,6 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    console.error('Subscription error:', error);
-    
     return {
       statusCode: 500,
       headers: {
@@ -141,8 +106,7 @@ exports.handler = async (event, context) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ 
-        error: 'Failed to subscribe. Please try again.',
-        details: error.message
+        error: 'Failed to subscribe. Please try again.'
       }),
     };
   }

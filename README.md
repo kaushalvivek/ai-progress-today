@@ -10,28 +10,18 @@
 
 ## What is this?
 
-A hyper-minimal timeline that doesn't pretend AI started with ChatGPT. We begin with the steam engine (automation's patient zero) and chronicle every pivotal moment leading to today's "this seems fine" AI landscape.
+A hyper-minimal timeline tracking AI progress from the steam engine to today. No PhD required to understand how we went from mechanical looms to frontier language models in 300 years.
 
-Three simple buckets:
+**Three importance levels:**
 - 🔴 **Pivotal** — Changed everything forever
-- 🟡 **Major** — Pretty significant, tbh  
+- 🟡 **Major** — Pretty significant breakthrough  
 - 🟢 **Notable** — Worth remembering when the robots write history
 
-## Why this exists
-
-Someone needs to document how we went from "mechanical looms" to "AGI by 2027" in a way that doesn't require a PhD to understand. Also, the internet needs more timelines that work on mobile.
-
-## Deploy in 30 seconds
-
-```bash
-git clone [this-repo]
-# Push to GitHub
-# Connect to Netlify  
-# Point aiprogress.today at it
-# Profit (spiritually)
-```
-
-No build steps. No frameworks. No drama. Just HTML, CSS, and the mild existential dread of tracking humanity's obsolescence.
+**Features:**
+- 60+ milestones from 1712 to 2025
+- Includes foundational research papers and engineering breakthroughs
+- Mobile-optimized with keyboard shortcuts (1-4 for filtering)
+- Email subscriptions for new milestone updates
 
 ## Add new milestones
 
@@ -47,26 +37,41 @@ Edit `events.json` when the next breakthrough hits:
 }
 ```
 
-## Files that matter
+## Architecture
 
 ```
-index.html      — The timeline
-events.json     — All the data
-style.css       — Dark mode elegance
-script.js       — Makes things clickable
-netlify.toml    — Deploy config
+index.html              — Timeline interface
+events.json             — All milestone data
+style.css               — Dark mode design
+script.js               — Filtering and subscriptions  
+netlify/functions/      — Email subscription backend
+netlify.toml            — Deployment config
+package.json            — Dependencies
 ```
 
-That's it. Five files tracking 300+ years of automation.
+No build steps. No frameworks. Just vanilla web tech and serverless functions.
 
-## Local development
+## Email Subscriptions
+
+Users can subscribe to get notified when new AI milestones are added. The system uses:
+- **Frontend**: Minimal form integrated into the timeline header
+- **Backend**: Netlify Functions + Google Sheets API
+- **Storage**: Google Sheets (acting as a simple database)
+
+Subscribers are stored with email, timestamp, and IP address for basic analytics.
+
+## Local Development
 
 ```bash
+git clone https://github.com/kaushalvivek/ai-progress-today.git
+cd ai-progress-today
 python3 -m http.server 8000    # Or any HTTP server
-open http://localhost:8000     # Behold the timeline
+open http://localhost:8000
 ```
+
+For subscription testing, you'll need to set up Google Sheets API credentials and deploy to Netlify.
 
 ---
 
-**Built by [vivek](https://vivekkaushal.com)** • [GitHub](https://github.com/kaushalvivek/ai-progress-today) • [Edit](https://github.com/kaushalvivek/ai-progress-today/edit/main/README.md)  
+**Built by [vivek](https://vivekkaushal.com)** • [GitHub](https://github.com/kaushalvivek/ai-progress-today)  
 *For people who appreciate clean design and mild gallows humor about our AI future.*
