@@ -9,7 +9,7 @@
     {"name":"Llama 3","detail":"70 B open model reaches GPT-4-class benchmarks—democratized frontier performance.","date":"2024-04-18","importance":"notable","link":"https://ai.meta.com/blog/meta-llama-3/"},
     {"name":"OpenAI Sora","detail":"Minute-long photorealistic text-to-video → toward world-model alignment with reality.","date":"2024-02-15","importance":"notable","link":"https://openai.com/sora"},
     {"name":"Gemini 1.5 Pro (1 M context)","detail":"Shows transformers can reason over book-length input—critical for long-horizon AGI tasks.","date":"2024-02","importance":"notable","link":"https://deepmind.google/technologies/gemini/#gemini-15"},
-    {"name":"Mixtral 8×7B","detail":"Sparse MoE open model matches GPT-3.5 quality at 1/10th compute—efficient scaling validated.","date":"2023-12","importance":"notable","link":"https://mistral.ai/news/mixtral-8x7b/"},
+    {"name":"Mixtral 8×7B","detail":"Sparse MoE open model matches GPT-3.5 quality at 1/10th compute—efficient scaling validated.","date":"2023-12","importance":"notable","link":"https://mistral.ai/news/mixtral-of-experts"},
     {"name":"Llama 2 open weights","detail":"70 B permissive license brings frontier-level LLMs to everyone—open-source arms race begins.","date":"2023-07","importance":"major","link":"https://en.wikipedia.org/wiki/LLaMA"},
     {"name":"GPT-4","detail":"Multimodal model reaches professional benchmarks; stronger reasoning & safety layers.","date":"2023-03-14","importance":"major","link":"https://en.wikipedia.org/wiki/GPT-4"},
     {"name":"ChatGPT launch","detail":"RLHF chat UX puts LLMs into mainstream workflows—100 M users in months.","date":"2022-11-30","importance":"pivotal","link":"https://en.wikipedia.org/wiki/ChatGPT"},
