@@ -1,7 +1,9 @@
 {
   "events": [
     {"name":"Claude Opus 4","detail":"200 K context + tool APIs positions Anthropic at frontier; raises safety bar.","date":"2025-05-22","importance":"notable","link":"https://www.anthropic.com/news/claude-4"},
+    {"name":"Google Veo 3","detail":"First video generation model with native audio—creates environmental sounds and dialogue synchronized with visuals.","date":"2025-05-20","importance":"major","link":"https://blog.google/technology/ai/google-flow-veo-ai-filmmaking-tool/"},
     {"name":"OpenAI o3","detail":"Outperforms SoA on complex reasoning by scaling 'thought' steps; new best-in-class.","date":"2025-04-16","importance":"notable","link":"https://openai.com/index/introducing-o3-and-o4-mini/"},
+    {"name":"Gemini 2.5 Pro","detail":"1M context reasoning model with 'thinking' mode leads LMArena—Google's most intelligent model yet.","date":"2025-03-12","importance":"major","link":"https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"},
     {"name":"DeepSeek R1","detail":"Commodity-priced frontier reasoning ($1/MTok) collapses cost barrier to advanced AI.","date":"2025-01","importance":"major","link":"https://www.deepseek.com/"},
     {"name":"OpenAI o1","detail":"'Reasoning-first' LM allocates adaptive compute per query; step beyond static inference.","date":"2024-09-12","importance":"notable","link":"https://openai.com/o1"},
     {"name":"GPT-4o ('omni')","detail":"Real-time audio-vision-text with sub-second latency—closest to fluid, agentic multimodal intelligence so far.","date":"2024-05-13","importance":"major","link":"https://openai.com/index/gpt-4o-and-more-tools-to-chatgpt-free"},

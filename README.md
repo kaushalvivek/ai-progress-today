@@ -84,13 +84,17 @@ For subscription testing, you'll need to set up Google Sheets API credentials an
 
 **How AI maintains this timeline autonomously:**
 
-The magic happens through an AI agent deployed as a Lambda function that:
+The magic will happen through an AI agent deployed as a Lambda function (currently in development):
 
-1. **🔍 Scans Multiple Sources**: Continuously monitors AI news, research papers, company announcements, and academic publications
-2. **🧠 Evaluates Significance**: Uses language models to assess whether developments meet the threshold for "notable," "major," or "pivotal" classification
-3. **✍️ Generates Entries**: Automatically writes concise, consistent descriptions that match the site's tone and format
-4. **🔄 Auto-commits**: Pushes new events directly to the GitHub repository, triggering automatic deployment
-5. **📧 Notifies Subscribers**: Email notifications go out when significant new milestones are added
+1. **🗓️ Daily Execution**: Lambda function will run once per day at 9 AM UTC
+2. **📰 Source Monitoring**: Will scan the TLDR AI newsletter for significant developments (future expansion planned to additional sources)
+3. **🧠 Significance Evaluation**: Uses OpenAI's o3 model to assess whether each development meets threshold criteria for "notable," "major," or "pivotal" classification
+4. **✍️ Content Generation**: Automatically writes 60-character summaries matching the site's concise, technical tone
+5. **🔄 Git Integration**: Creates commits directly to the GitHub repository with properly formatted JSON entries
+6. **🚀 Auto-deployment**: Netlify automatically rebuilds and deploys when new commits are pushed
+7. **📧 Notification Trigger**: Sends emails to subscribers when new milestones are successfully added
+
+**Current Status**: The AI curation system is work-in-progress. The current timeline has been curated by OpenAI o3 and reviewed/edited by Claude Opus 4 (thinking). Future updates will be fully automated via Lambda.
 
 **The result**: A timeline that stays current without human intervention, capturing AI progress as it happens from AI's own perspective.
 
