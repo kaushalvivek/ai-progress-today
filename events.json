@@ -1,0 +1,221 @@
+{
+  "events": [
+    {
+      "name": "o3 achieves breakthrough in reasoning",
+      "detail": "OpenAI's o3 model shows dramatic improvements on ARC-AGI benchmark",
+      "date": "2024-12",
+      "importance": "pivotal",
+      "link": "https://openai.com/o3/"
+    },
+    {
+      "name": "Claude 3.5 Sonnet (New)",
+      "detail": "Computer use capabilities, agentic AI interactions",
+      "date": "2024-10",
+      "importance": "major",
+      "link": "https://www.anthropic.com/news/3-5-sonnet-improved"
+    },
+    {
+      "name": "OpenAI o1 (Strawberry)",
+      "detail": "Chain-of-thought reasoning, enhanced problem solving",
+      "date": "2024-09",
+      "importance": "notable",
+      "link": "https://openai.com/o1/"
+    },
+    {
+      "name": "GPT-4o released",
+      "detail": "Multimodal flagship with voice, vision, and text integration",
+      "date": "2024-05",
+      "importance": "major",
+      "link": "https://openai.com/gpt-4o/"
+    },
+    {
+      "name": "Claude 3 family released",
+      "detail": "Opus, Sonnet, and Haiku models with improved capabilities",
+      "date": "2024-03",
+      "importance": "notable",
+      "link": "https://www.anthropic.com/news/claude-3-family"
+    },
+    {
+      "name": "Google Gemini 1.5 Pro",
+      "detail": "1M+ token context window, breakthrough in long context",
+      "date": "2024-02",
+      "importance": "notable",
+      "link": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/"
+    },
+    {
+      "name": "OpenAI leadership crisis",
+      "detail": "Sam Altman fired and rehired, industry shakeup",
+      "date": "2023-11",
+      "importance": "major",
+      "link": "https://www.nytimes.com/2023/11/17/technology/openai-sam-altman-fired.html"
+    },
+    {
+      "name": "GPT-4 released",
+      "detail": "Multimodal capabilities, significant reasoning improvements",
+      "date": "2023-03",
+      "importance": "major",
+      "link": "https://openai.com/gpt-4/"
+    },
+    {
+      "name": "ChatGPT reaches 100M users",
+      "detail": "Fastest growing consumer app in history",
+      "date": "2023-01",
+      "importance": "notable",
+      "link": "https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/"
+    },
+    {
+      "name": "ChatGPT launched",
+      "detail": "AI goes mainstream, sparks global AI race",
+      "date": "2022-11",
+      "importance": "pivotal",
+      "link": "https://openai.com/blog/chatgpt/"
+    },
+    {
+      "name": "DALL-E 2 released",
+      "detail": "High-quality text-to-image generation capabilities",
+      "date": "2022-04",
+      "importance": "notable",
+      "link": "https://openai.com/dall-e-2/"
+    },
+    {
+      "name": "InstructGPT published",
+      "detail": "RLHF methodology for aligning language models",
+      "date": "2022-01",
+      "importance": "notable",
+      "link": "https://arxiv.org/abs/2203.02155"
+    },
+    {
+      "name": "Codex powers GitHub Copilot",
+      "detail": "AI-assisted programming becomes mainstream",
+      "date": "2021-08",
+      "importance": "major",
+      "link": "https://github.blog/2021-06-29-introducing-github-copilot-ai-pair-programmer/"
+    },
+    {
+      "name": "GPT-3 released",
+      "detail": "175B parameters, emergent abilities from scale",
+      "date": "2020-05",
+      "importance": "major",
+      "link": "https://arxiv.org/abs/2005.14165"
+    },
+    {
+      "name": "GPT-2 \"too dangerous to release\"",
+      "detail": "First glimpse of language model capabilities",
+      "date": "2019-02",
+      "importance": "notable",
+      "link": "https://openai.com/blog/better-language-models/"
+    },
+    {
+      "name": "BERT revolutionizes NLP",
+      "detail": "Bidirectional transformers improve language understanding",
+      "date": "2018-10",
+      "importance": "notable",
+      "link": "https://arxiv.org/abs/1810.04805"
+    },
+    {
+      "name": "Transformer Architecture",
+      "detail": "\"Attention is All You Need\" - foundation of modern AI",
+      "date": "2017-06",
+      "importance": "pivotal",
+      "link": "https://arxiv.org/abs/1706.03762"
+    },
+    {
+      "name": "AlphaZero masters Chess, Shogi, Go",
+      "detail": "Self-play learning without human knowledge",
+      "date": "2017-12",
+      "importance": "notable",
+      "link": "https://arxiv.org/abs/1712.01815"
+    },
+    {
+      "name": "AlphaGo defeats Lee Sedol",
+      "detail": "AI masters the ancient game of Go",
+      "date": "2016-03",
+      "importance": "major",
+      "link": "https://www.nature.com/articles/nature16961"
+    },
+    {
+      "name": "ResNet enables very deep networks",
+      "detail": "Skip connections solve vanishing gradient problem",
+      "date": "2015-12",
+      "importance": "notable",
+      "link": "https://arxiv.org/abs/1512.03385"
+    },
+    {
+      "name": "Generative Adversarial Networks",
+      "detail": "Ian Goodfellow introduces GANs",
+      "date": "2014-06",
+      "importance": "notable",
+      "link": "https://arxiv.org/abs/1406.2661"
+    },
+    {
+      "name": "AlexNet wins ImageNet",
+      "detail": "Deep learning revolution begins",
+      "date": "2012-09",
+      "importance": "pivotal",
+      "link": "https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html"
+    },
+    {
+      "name": "ImageNet dataset released",
+      "detail": "Large-scale visual recognition benchmark",
+      "date": "2009-10",
+      "importance": "notable",
+      "link": "http://www.image-net.org/papers/imagenet_cvpr09.pdf"
+    },
+    {
+      "name": "Deep Blue defeats Kasparov",
+      "detail": "AI conquers chess in historic match",
+      "date": "1997-05",
+      "importance": "major",
+      "link": "https://www.ibm.com/ibm/history/ibm100/us/en/icons/deepblue/"
+    },
+    {
+      "name": "Backpropagation popularized",
+      "detail": "Neural networks learn to learn efficiently",
+      "date": "1986",
+      "importance": "notable",
+      "link": "https://www.nature.com/articles/323533a0"
+    },
+    {
+      "name": "Dartmouth AI Conference",
+      "detail": "Birth of artificial intelligence as a field",
+      "date": "1956",
+      "importance": "major",
+      "link": "https://www.dartmouth.edu/~ai50/homepage.html"
+    },
+    {
+      "name": "Turing Test proposed",
+      "detail": "Alan Turing asks \"Can machines think?\"",
+      "date": "1950",
+      "importance": "pivotal",
+      "link": "https://academic.oup.com/mind/article/LIX/236/433/986238"
+    },
+    {
+      "name": "First artificial neural network",
+      "detail": "McCulloch-Pitts neuron model",
+      "date": "1943",
+      "importance": "notable",
+      "link": "https://link.springer.com/article/10.1007/BF02478259"
+    },
+    {
+      "name": "Turing Machine",
+      "detail": "Theoretical foundation of computation",
+      "date": "1936",
+      "importance": "pivotal",
+      "link": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"
+    },
+    {
+      "name": "Babbage's Difference Engine",
+      "detail": "First mechanical computer design",
+      "date": "1822",
+      "importance": "notable",
+      "link": "https://www.computerhistory.org/babbage/"
+    },
+    {
+      "name": "Newcomen Steam Engine",
+      "detail": "First step in automating human work",
+      "date": "1712",
+      "importance": "pivotal",
+      "link": "https://www.britannica.com/technology/Newcomen-atmospheric-engine"
+    }
+  ]
+}
