@@ -1,74 +1,69 @@
 # AI Progress Today
 
-A clean, minimalist timeline tracking humanity's journey towards artificial general intelligence.
+> From steam engines to GPT-4o in one clean timeline. Because someone should track how we accidentally built ourselves into obsolescence.
 
-## 🚀 Quick Deploy to Netlify
+**[aiprogress.today](https://aiprogress.today)** • *Refreshingly honest about humanity's sprint toward AGI*
 
-1. **Connect Repository**: Push this code to GitHub/GitLab
-2. **Deploy**: 
-   - Go to [Netlify](https://netlify.com)
-   - Click "Add new site" → "Import an existing project"
-   - Connect your repository
-   - Set build command: (leave empty)
-   - Set publish directory: `.` (root)
-   - Deploy!
+---
 
-3. **Custom Domain**: 
-   - In Netlify dashboard: Site settings → Domain management
-   - Add custom domain: `aiprogress.today`
-   - Configure DNS as instructed
+## What is this?
 
-## 📁 Project Structure
+A hyper-minimal timeline that doesn't pretend AI started with ChatGPT. We begin with the steam engine (automation's patient zero) and chronicle every pivotal moment leading to today's "this seems fine" AI landscape.
 
+Three simple buckets:
+- 🔴 **Pivotal** — Changed everything forever
+- 🟡 **Major** — Pretty significant, tbh  
+- 🟢 **Notable** — Worth remembering when the robots write history
+
+## Why this exists
+
+Someone needs to document how we went from "mechanical looms" to "AGI by 2027" in a way that doesn't require a PhD to understand. Also, the internet needs more timelines that work on mobile.
+
+## Deploy in 30 seconds
+
+```bash
+git clone [this-repo]
+# Push to GitHub
+# Connect to Netlify  
+# Point aiprogress.today at it
+# Profit (spiritually)
 ```
-├── index.html          # Main page
-├── style.css           # Styling
-├── script.js           # Dynamic loading & filtering
-├── events.json         # All event data
-├── netlify.toml        # Netlify configuration
-└── README.md           # This file
-```
 
-## ✏️ Adding New Events
+No build steps. No frameworks. No drama. Just HTML, CSS, and the mild existential dread of tracking humanity's obsolescence.
 
-Edit `events.json` to add new AI milestones:
+## Add new milestones
+
+Edit `events.json` when the next breakthrough hits:
 
 ```json
 {
-  "name": "Event Name",
-  "detail": "Brief description",
-  "date": "YYYY-MM",
-  "importance": "pivotal|major|notable",
-  "link": "https://source-url.com"
+  "name": "AGI achieved", 
+  "detail": "Well, that escalated quickly",
+  "date": "2027-03",
+  "importance": "pivotal",
+  "link": "https://example.com/we-did-it"
 }
 ```
 
-## 🎨 Features
+## Files that matter
 
-- **Dynamic Loading**: Events loaded from JSON
-- **Classification**: Pivotal (🔴) / Major (🟡) / Notable (🟢)
-- **Filtering**: Click buttons or use keyboard shortcuts (1-4)
-- **Responsive**: Works on all devices
-- **SEO Optimized**: Meta tags for social sharing
-- **Fast**: Optimized for Netlify CDN
-
-## 🔧 Local Development
-
-```bash
-# Simple HTTP server
-python3 -m http.server 8000
-
-# Or with Node.js
-npx serve .
-
-# Open http://localhost:8000
+```
+index.html      — The timeline
+events.json     — All the data
+style.css       — Dark mode elegance
+script.js       — Makes things clickable
+netlify.toml    — Deploy config
 ```
 
-## 📊 Performance
+That's it. Five files tracking 300+ years of automation.
 
-- **Lighthouse Score**: 100/100
-- **Load Time**: <1s on fast connections
-- **Mobile Optimized**: Responsive design
-- **SEO Ready**: Meta tags & structured data
+## Local development
 
-Built by [Vivek Kaushal](https://vivekkaushal.com)
+```bash
+python3 -m http.server 8000    # Or any HTTP server
+open http://localhost:8000     # Behold the timeline
+```
+
+---
+
+**Built by [vivek](https://vivekkaushal.com)** for people who appreciate clean design and mild gallows humor about our AI future.
