@@ -2,19 +2,6 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { JWT } = require('google-auth-library');
 
 exports.handler = async (event, context) => {
-  // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      },
-      body: JSON.stringify({ error: 'Method not allowed' }),
-    };
-  }
-
   // Handle CORS preflight
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -25,6 +12,19 @@ exports.handler = async (event, context) => {
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
       },
       body: '',
+    };
+  }
+
+  // Only allow POST requests
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
+      body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
 
