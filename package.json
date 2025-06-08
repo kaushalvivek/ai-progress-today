@@ -4,19 +4,28 @@
   "description": "Timeline tracking humanity's journey toward AGI",
   "main": "index.html",
   "dependencies": {
-    "google-spreadsheet": "^4.1.2",
-    "google-auth-library": "^9.4.1"
+    "google-auth-library": "^9.4.1",
+    "google-spreadsheet": "^4.1.2"
   },
   "scripts": {
     "dev": "netlify dev",
     "build": "echo 'No build step required'",
-    "deploy": "netlify deploy --prod"
+    "deploy": "netlify deploy --prod",
+    "test": "jest"
   },
-  "keywords": ["ai", "timeline", "agi", "progress"],
+  "keywords": [
+    "ai",
+    "timeline",
+    "agi",
+    "progress"
+  ],
   "author": "Vivek Kaushal",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/kaushalvivek/ai-progress-today.git"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
